@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#111827" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="icon-192.png" />
+  <title>Mounjaro Pen-Rechner</title>
+  <style>
+    :root{--bg:#0f172a;--card:#111827;--muted:#94a3b8;--text:#f8fafc;--accent:#38bdf8;--good:#22c55e;--warn:#f59e0b;--danger:#ef4444;--line:#243244}
+    *{box-sizing:border-box} body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:linear-gradient(180deg,#0f172a,#020617);color:var(--text);min-height:100vh;padding:env(safe-area-inset-top) 16px 24px}
+    header{padding:18px 2px 12px} h1{margin:0;font-size:28px;letter-spacing:-.4px} p{color:var(--muted);line-height:1.45}.grid{display:grid;gap:14px}.card{background:rgba(17,24,39,.92);border:1px solid var(--line);border-radius:22px;padding:16px;box-shadow:0 14px 30px rgba(0,0,0,.25)}
+    .row{display:flex;justify-content:space-between;gap:12px;align-items:center}.big{font-size:42px;font-weight:800;letter-spacing:-1px}.unit{font-size:18px;color:var(--muted);font-weight:600}.label{color:var(--muted);font-size:13px;margin-bottom:6px}.bar{height:14px;background:#020617;border-radius:99px;overflow:hidden;border:1px solid #1f2937}.fill{height:100%;width:0%;background:linear-gradient(90deg,var(--accent),var(--good));border-radius:99px;transition:.25s}
+    button,input,select,textarea{font:inherit} button{border:0;border-radius:16px;padding:14px 16px;font-weight:750;color:#03111f;background:var(--accent);width:100%} button.secondary{background:#1f2937;color:var(--text);border:1px solid var(--line)} button.danger{background:#7f1d1d;color:#fff}.actions{display:grid;grid-template-columns:1fr 1fr;gap:10px} input,select,textarea{width:100%;background:#020617;color:var(--text);border:1px solid var(--line);border-radius:14px;padding:13px;margin-top:6px} textarea{min-height:70px}.form{display:grid;gap:12px}.chips{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.chip{padding:11px 8px;background:#020617;border:1px solid var(--line);border-radius:14px;text-align:center;color:var(--text)}.chip.active{border-color:var(--accent);background:#083344}.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}.tab{background:#020617;color:var(--muted);border:1px solid var(--line);padding:10px;border-radius:13px}.tab.active{color:var(--text);border-color:var(--accent)}.hidden{display:none}.history{display:grid;gap:10px}.item{background:#020617;border:1px solid var(--line);border-radius:16px;padding:12px}.item small{color:var(--muted)}.pill{display:inline-flex;padding:6px 10px;border-radius:99px;background:#020617;border:1px solid var(--line);color:var(--muted);font-size:13px}.warn{color:var(--warn)}.good{color:var(--good)} footer{color:var(--muted);font-size:12px;text-align:center;margin-top:18px}
+  </style>
+</head>
+<body>
+  <header><h1>Pen-Rechner</h1><p>Flexible Verwaltung deines Pens mit Restmenge, Verlauf und Planer.</p></header>
+  <div class="tabs"><button class="tab active" data-tab="home">Übersicht</button><button class="tab" data-tab="plan">Planer</button><button class="tab" data-tab="history">Verlauf</button></div>
+
+  <main class="grid">
+    <section id="home" class="grid">
+      <div class="card">
+        <div class="row"><div><div class="label">Aktueller Pen</div><div><span id="penStrength" class="pill">kein Pen</span></div></div><button class="secondary" style="width:auto" id="newPenBtn">Neuer Pen</button></div>
+        <div style="margin-top:18px"><div class="label">Restmenge</div><div><span id="remaining" class="big">0</span> <span class="unit">mg</span></div></div>
+        <div class="bar" style="margin-top:12px"><div id="fill" class="fill"></div></div>
+        <p id="statusText">Starte einen neuen Pen.</p>
+      </div>
+      <div class="card form">
+        <h2 style="margin:0">Wirkstoff entnehmen</h2>
+        <label>Entnommene Menge in mg<input id="doseInput" inputmode="decimal" placeholder="z. B. 2,5"></label>
+        <label>Notiz optional<textarea id="noteInput" placeholder="z. B. Woche 1"></textarea></label>
+        <button id="saveDoseBtn">Entnahme speichern</button>
+      </div>
+    </section>
+
+    <section id="plan" class="grid hidden">
+      <div class="card form">
+        <h2 style="margin:0">Pen-Planer</h2>
+        <label>Pen-Stärke<select id="plannerStrength"></select></label>
+        <label>Wunschdosis je Anwendung<input id="plannerDose" inputmode="decimal" placeholder="z. B. 3,75"></label>
+        <button id="calcPlanBtn">Plan berechnen</button>
+        <p id="planResult">Gib eine Wunschdosis ein.</p>
+      </div>
+    </section>
+
+    <section id="history" class="grid hidden">
+      <div class="card"><div class="row"><h2 style="margin:0">Verlauf</h2><button class="danger" style="width:auto" id="clearHistoryBtn">Leeren</button></div><div id="historyList" class="history" style="margin-top:12px"></div></div>
+    </section>
+  </main>
+
+  <div id="newPenModal" class="card hidden" style="position:fixed;left:16px;right:16px;bottom:16px;z-index:5;border-color:#38bdf8">
+    <h2 style="margin-top:0">Neuen Pen starten</h2>
+    <div class="label">Pen-Stärke auswählen</div><div id="strengthChips" class="chips"></div>
+    <div class="actions" style="margin-top:14px"><button class="secondary" id="cancelPenBtn">Abbrechen</button><button id="startPenBtn">Starten</button></div>
+  </div>
+  <footer>Hinweis: Diese App ist nur ein privater Rechner und ersetzt keine medizinische Beratung.</footer>
+
+<script>
+const strengths=[2.5,5,7.5,10,12.5,15];
+let state=JSON.parse(localStorage.getItem('mjState')||'{"pen":null,"history":[]}');
+let selectedStrength=strengths[1];
+const $=id=>document.getElementById(id);
+const fmt=n=>(Math.round(Number(n)*100)/100).toLocaleString('de-DE',{maximumFractionDigits:2});
+const parse=v=>Number(String(v).replace(',','.'));
+function save(){localStorage.setItem('mjState',JSON.stringify(state));render()}
+function render(){
+  const pen=state.pen;
+  $('penStrength').textContent=pen?fmt(pen.total)+' mg':'kein Pen';
+  $('remaining').textContent=pen?fmt(pen.remaining):'0';
+  const pct=pen&&pen.total>0?Math.max(0,Math.min(100,pen.remaining/pen.total*100)):0;
+  $('fill').style.width=pct+'%';
+  $('statusText').innerHTML=pen?`Noch <b>${fmt(pen.remaining)}</b> von <b>${fmt(pen.total)} mg</b> verfügbar.`:'Starte einen neuen Pen.';
+  const list=$('historyList'); list.innerHTML='';
+  if(!state.history.length){list.innerHTML='<p>Noch keine Entnahmen gespeichert.</p>'} else state.history.slice().reverse().forEach((h,i)=>{const d=document.createElement('div');d.className='item';d.innerHTML=`<div class="row"><b>${fmt(h.dose)} mg entnommen</b><span>${fmt(h.remaining)} mg Rest</span></div><small>${new Date(h.date).toLocaleString('de-DE')}${h.note?' · '+h.note:''}</small>`;list.appendChild(d)});
+}
+function setup(){
+  const chips=$('strengthChips'); strengths.forEach(s=>{const b=document.createElement('button');b.className='chip';b.textContent=fmt(s)+' mg';b.onclick=()=>{selectedStrength=s;[...chips.children].forEach(c=>c.classList.remove('active'));b.classList.add('active')};chips.appendChild(b)});chips.children[1].classList.add('active');
+  strengths.forEach(s=>{let o=document.createElement('option');o.value=s;o.textContent=fmt(s)+' mg';$('plannerStrength').appendChild(o)});
+  document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));b.classList.add('active');['home','plan','history'].forEach(t=>$(t).classList.toggle('hidden',t!==b.dataset.tab));render()});
+  $('newPenBtn').onclick=()=>$('newPenModal').classList.remove('hidden'); $('cancelPenBtn').onclick=()=>$('newPenModal').classList.add('hidden');
+  $('startPenBtn').onclick=()=>{state.pen={total:selectedStrength,remaining:selectedStrength,started:new Date().toISOString()};state.history=[];$('newPenModal').classList.add('hidden');save()};
+  $('saveDoseBtn').onclick=()=>{if(!state.pen){alert('Bitte zuerst einen Pen starten.');return} const dose=parse($('doseInput').value); if(!dose||dose<=0){alert('Bitte eine gültige Menge eingeben.');return} if(dose>state.pen.remaining+0.0001){alert('Diese Menge ist größer als die Restmenge.');return} state.pen.remaining=Math.max(0,Math.round((state.pen.remaining-dose)*1000)/1000); state.history.push({date:new Date().toISOString(),dose,remaining:state.pen.remaining,note:$('noteInput').value.trim()}); $('doseInput').value='';$('noteInput').value='';save()};
+  $('clearHistoryBtn').onclick=()=>{if(confirm('Verlauf wirklich löschen?')){state.history=[];save()}};
+  $('calcPlanBtn').onclick=()=>{const total=parse($('plannerStrength').value), dose=parse($('plannerDose').value); if(!dose||dose<=0){$('planResult').textContent='Bitte eine gültige Wunschdosis eingeben.';return} const full=Math.floor(total/dose); const rest=Math.round((total-full*dose)*100)/100; $('planResult').innerHTML=`Dieser Pen reicht für <b>${full}</b> vollständige Anwendung${full===1?'':'en'} mit je <b>${fmt(dose)} mg</b>. ${rest>0?`Danach bleiben <b>${fmt(rest)} mg</b> übrig.`:'Es bleibt kein Rest übrig.'}`};
+  if('serviceWorker' in navigator){navigator.serviceWorker.register('service-worker.js').catch(()=>{})}
+  render();
+}
+setup();
+</script>
+</body>
+</html>
