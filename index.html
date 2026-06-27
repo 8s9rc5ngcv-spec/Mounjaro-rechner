@@ -2,106 +2,108 @@
 <html lang="de">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Mounjaro Rechner</title>
-  <link rel="manifest" href="manifest.json" />
-  <meta name="theme-color" content="#6d5dfc" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#171225" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Mounjaro" />
+  <title>Mounjaro Rechner</title>
+  <link rel="manifest" href="manifest.json" />
   <link rel="apple-touch-icon" href="icons/icon-192.png" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <div class="app-shell">
+  <main class="app-shell">
     <header class="topbar">
-      <div>
-        <p class="eyebrow">Mounjaro</p>
-        <h1>Pen Rechner</h1>
-      </div>
-      <button class="icon-btn" id="settingsBtn" aria-label="Einstellungen">⚙️</button>
+      <div><p class="eyebrow">Mounjaro</p><h1>Pen Rechner</h1></div>
+      <button id="themeBtn" class="icon-btn" aria-label="Design wechseln">☾</button>
     </header>
 
-    <main>
-      <section class="hero-card glass">
-        <div class="hero-row">
+    <section id="dashboard" class="view active">
+      <article class="hero-card glass">
+        <div class="hero-grid">
           <div>
-            <p class="label">Aktueller Pen</p>
-            <h2 id="activePenTitle">Noch kein Pen</h2>
-            <p class="muted" id="activePenSub">Starte einen neuen Pen.</p>
+            <p class="muted">Aktiver Pen</p>
+            <h2 id="activePenTitle">Kein Pen</h2>
+            <p id="activePenSubtitle" class="muted">Starte einen neuen Pen.</p>
           </div>
-          <div class="ring" id="ring"><span id="ringText">0%</span></div>
+          <div class="ring" aria-label="Restmenge">
+            <svg viewBox="0 0 120 120">
+              <circle class="ring-bg" cx="60" cy="60" r="50"></circle>
+              <circle id="ringProgress" class="ring-progress" cx="60" cy="60" r="50"></circle>
+            </svg>
+            <div><strong id="restValue">0</strong><span>mg Rest</span></div>
+          </div>
         </div>
-        <div class="meter"><div id="meterFill"></div></div>
-        <div class="stats-grid">
-          <div><span id="remainingMg">0</span><small>mg Rest</small></div>
-          <div><span id="usedMg">0</span><small>mg genutzt</small></div>
-          <div><span id="lastDose">–</span><small>letzte Entnahme</small></div>
+        <div class="pen-visual"><div id="penFill" class="pen-fill"></div><div class="pen-cap"></div></div>
+        <div class="hero-actions">
+          <button class="primary" id="openDoseBtn">+ Wirkstoff entnehmen</button>
+          <button class="secondary" id="newPenBtn">Neuer Pen</button>
         </div>
+      </article>
+
+      <section class="stats-row">
+        <article class="mini-card"><span>Verbraucht</span><strong id="usedValue">0 mg</strong></article>
+        <article class="mini-card"><span>Letzte Entnahme</span><strong id="lastDoseValue">–</strong></article>
       </section>
 
-      <section class="actions">
-        <button class="primary" id="newPenBtn">💉 Neuer Pen</button>
-        <button class="secondary" id="doseBtn">➕ Entnahme</button>
-      </section>
-
-      <section class="card">
-        <div class="section-head"><h3>Pen-Planer</h3><span id="plannerResult">–</span></div>
-        <div class="form-grid">
-          <label>Pen-Stärke
-            <select id="plannerStrength"></select>
-          </label>
-          <label>Wunschdosis mg
-            <input id="plannerDose" type="number" min="0" step="0.01" placeholder="z. B. 5" />
-          </label>
+      <article class="glass planner-card">
+        <div class="section-title"><h3>Pen-Planer</h3><span>Flexible Nutzung</span></div>
+        <div class="form-grid small">
+          <label>Wunschdosis mg<input id="plannerDose" type="number" step="0.01" inputmode="decimal" placeholder="z. B. 2,5"></label>
         </div>
-      </section>
+        <p id="plannerResult" class="planner-result">Gib eine Wunschdosis ein.</p>
+      </article>
+    </section>
 
-      <section class="card">
-        <div class="section-head"><h3>Verlauf</h3><button class="text-btn" id="clearHistoryBtn">löschen</button></div>
-        <div id="historyList" class="history"></div>
-      </section>
-    </main>
-  </div>
+    <section id="pens" class="view">
+      <div class="section-title"><h2>Pens</h2><button class="small-btn" id="newPenBtn2">+ Neu</button></div>
+      <div id="penList" class="list"></div>
+    </section>
 
-  <dialog id="penDialog">
-    <form method="dialog" class="dialog-card">
-      <h3>Neuen Pen starten</h3>
+    <section id="history" class="view">
+      <div class="section-title"><h2>Verlauf</h2><button class="small-btn danger" id="clearHistoryBtn">Leeren</button></div>
+      <div id="historyList" class="list"></div>
+    </section>
+
+    <section id="settings" class="view">
+      <article class="glass settings-card">
+        <h2>Einstellungen</h2>
+        <button class="secondary full" id="exportBtn">Daten exportieren</button>
+        <label class="secondary full file-label">Daten importieren<input id="importInput" type="file" accept="application/json"></label>
+        <button class="secondary danger full" id="resetAllBtn">Alle Daten löschen</button>
+        <p class="muted tiny">Alle Daten bleiben lokal im Browser auf deinem Gerät gespeichert.</p>
+      </article>
+    </section>
+  </main>
+
+  <nav class="tabbar">
+    <button class="tab active" data-view="dashboard">⌂<span>Start</span></button>
+    <button class="tab" data-view="pens">▣<span>Pens</span></button>
+    <button class="tab" data-view="history">↺<span>Verlauf</span></button>
+    <button class="tab" data-view="settings">⚙<span>Mehr</span></button>
+  </nav>
+
+  <dialog id="penDialog" class="modal">
+    <form method="dialog" id="penForm">
+      <h2>Neuer Pen</h2>
       <label>Pen-Stärke
-        <select id="penStrength"></select>
+        <select id="penStrength"><option>2.5</option><option>5</option><option>7.5</option><option>10</option><option>12.5</option><option>15</option></select>
       </label>
-      <label>Individuelle Gesamtmenge mg
-        <input id="customTotal" type="number" min="0" step="0.01" placeholder="optional" />
-      </label>
-      <menu><button value="cancel">Abbrechen</button><button id="savePen" value="default">Speichern</button></menu>
+      <label>Name optional<input id="penName" placeholder="z. B. Pen 10 mg"></label>
+      <div class="modal-actions"><button class="secondary" value="cancel">Abbrechen</button><button class="primary" id="savePenBtn" value="default">Speichern</button></div>
     </form>
   </dialog>
 
-  <dialog id="doseDialog">
-    <form method="dialog" class="dialog-card">
-      <h3>Wirkstoff entnehmen</h3>
-      <label>Menge mg
-        <input id="doseAmount" type="number" min="0" step="0.01" placeholder="z. B. 5" />
-      </label>
-      <label>Notiz
-        <input id="doseNote" type="text" placeholder="optional" />
-      </label>
-      <menu><button value="cancel">Abbrechen</button><button id="saveDose" value="default">Speichern</button></menu>
+  <dialog id="doseDialog" class="modal">
+    <form method="dialog" id="doseForm">
+      <h2>Wirkstoff entnehmen</h2>
+      <label>Menge in mg<input id="doseAmount" type="number" step="0.01" inputmode="decimal" required placeholder="z. B. 2,5"></label>
+      <label>Notiz optional<input id="doseNote" placeholder="z. B. Woche 3"></label>
+      <div class="modal-actions"><button class="secondary" value="cancel">Abbrechen</button><button class="primary" id="saveDoseBtn" value="default">Speichern</button></div>
     </form>
   </dialog>
 
-  <dialog id="settingsDialog">
-    <form method="dialog" class="dialog-card">
-      <h3>Einstellungen</h3>
-      <button id="exportBtn" class="secondary" type="button">Daten exportieren</button>
-      <label class="file-label">Daten importieren
-        <input id="importFile" type="file" accept="application/json" />
-      </label>
-      <menu><button value="cancel">Schließen</button></menu>
-    </form>
-  </dialog>
-
-  <script src="js/storage.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>
