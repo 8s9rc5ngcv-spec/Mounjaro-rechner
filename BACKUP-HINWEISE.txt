@@ -1,0 +1,13 @@
+Mounjaro Rechner – Version 9 stabil
+
+Diese Version basiert auf der stabilen V8 und ergänzt eine sichere manuelle Backup-Funktion.
+
+Wichtig:
+- Vor dem Hochladen bei GitHub alle Inhalte dieses Ordners hochladen, nicht die ZIP-Datei.
+- Bestehende V8-Daten bleiben erhalten, weil der interne Speicher-Key bewusst gleich bleibt.
+- Backup erstellen: App öffnen > Zahnrad > Backup erstellen.
+- Die JSON-Datei danach in iCloud Drive, Google Drive oder auf dem Mac sichern.
+- Backup einspielen: App öffnen > Zahnrad > Backup einspielen > JSON-Datei auswählen.
+
+Hinweis:
+Dies ist noch keine automatische Google-Drive-Synchronisation. Es ist eine manuelle, stabile Datensicherung.
