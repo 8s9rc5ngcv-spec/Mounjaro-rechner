@@ -1,13 +1,19 @@
-Mounjaro Rechner – Version 9 stabil
+Mounjaro Rechner – Version 11
 
-Diese Version basiert auf der stabilen V8 und ergänzt eine sichere manuelle Backup-Funktion.
+Diese Version wurde direkt auf Grundlage der hochgeladenen V10 erstellt.
+
+Neu in V11:
+- Google-Drive-Backup über das iPhone-Teilen-Menü.
+- Im Zahnrad-Menü auf „Google Drive Backup“ tippen.
+- Danach im Teilen-Menü Google Drive auswählen und die JSON-Datei dort sichern.
+- Alternativ bleibt „Backup speichern“ als normale lokale Export-Datei erhalten.
+- Backup importieren funktioniert weiterhin über eine gespeicherte JSON-Datei.
 
 Wichtig:
-- Vor dem Hochladen bei GitHub alle Inhalte dieses Ordners hochladen, nicht die ZIP-Datei.
-- Bestehende V8-Daten bleiben erhalten, weil der interne Speicher-Key bewusst gleich bleibt.
-- Backup erstellen: App öffnen > Zahnrad > Backup erstellen.
-- Die JSON-Datei danach in iCloud Drive, Google Drive oder auf dem Mac sichern.
-- Backup einspielen: App öffnen > Zahnrad > Backup einspielen > JSON-Datei auswählen.
+- Dies ist keine vollautomatische Google-Drive-Synchronisation mit Google-Login.
+- Dafür wäre eine Google-OAuth/Client-ID-Konfiguration nötig.
+- Diese Lösung ist stabiler für iPhone/GitHub Pages und funktioniert ohne Google-Developer-Einrichtung.
+- Die bestehenden V10-Daten bleiben erhalten, weil der interne Speicher-Key unverändert bleibt.
 
-Hinweis:
-Dies ist noch keine automatische Google-Drive-Synchronisation. Es ist eine manuelle, stabile Datensicherung.
+GitHub:
+- Beim Hochladen alle Inhalte dieses Ordners hochladen, nicht nur die ZIP-Datei.
