@@ -2,108 +2,72 @@
 <html lang="de">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <meta name="theme-color" content="#171225" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#12091f" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Mounjaro" />
-  <title>Mounjaro Rechner</title>
   <link rel="manifest" href="manifest.json" />
   <link rel="apple-touch-icon" href="icons/icon-192.png" />
-  <link rel="stylesheet" href="css/style.css" />
+  <title>Mounjaro Rechner</title>
+  <style>
+    :root{--bg:#11081d;--bg2:#201032;--card:rgba(255,255,255,.095);--card2:rgba(255,255,255,.14);--text:#fff;--muted:rgba(255,255,255,.68);--line:rgba(255,255,255,.14);--accent:#b472ff;--accent2:#ff8bd2;--good:#6ee7b7;--warn:#fbbf24;--danger:#fb7185;--shadow:0 18px 50px rgba(0,0,0,.34);--radius:26px}
+    *{box-sizing:border-box;-webkit-tap-highlight-color:transparent} body{margin:0;min-height:100vh;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;background:radial-gradient(circle at 15% 5%,#50316f 0,#221038 34%,#11081d 70%),linear-gradient(160deg,var(--bg),#07040d);color:var(--text);padding:env(safe-area-inset-top) 0 calc(86px + env(safe-area-inset-bottom));} button,input,select,textarea{font:inherit} .app{max-width:520px;margin:0 auto;padding:18px 16px 0}.top{display:flex;justify-content:space-between;align-items:center;margin:6px 0 18px}.title small{display:block;color:var(--muted);font-size:13px}.title h1{font-size:30px;line-height:1;margin:4px 0 0;letter-spacing:-.8px}.pill{border:1px solid var(--line);background:rgba(255,255,255,.1);border-radius:999px;padding:9px 12px;color:var(--muted);font-size:13px}.card{background:linear-gradient(180deg,var(--card2),var(--card));border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);backdrop-filter:blur(24px);padding:18px;margin:14px 0}.hero{position:relative;overflow:hidden;padding:22px}.hero:before{content:"";position:absolute;right:-70px;top:-70px;width:190px;height:190px;background:radial-gradient(circle,var(--accent2),transparent 66%);opacity:.35}.row{display:flex;align-items:center;justify-content:space-between;gap:12px}.muted{color:var(--muted)}.big{font-size:44px;font-weight:800;letter-spacing:-1.5px}.unit{font-size:18px;color:var(--muted);font-weight:600}.progress{height:12px;background:rgba(255,255,255,.12);border-radius:999px;overflow:hidden;margin:15px 0 10px}.bar{height:100%;width:0%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:999px;transition:.35s}.pen-visual{height:50px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.1);padding:7px;display:flex;align-items:center;gap:7px}.pen-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:.35s}.pen-cap{width:38px;height:100%;border-radius:999px;background:rgba(255,255,255,.22)}.btn{border:0;border-radius:18px;padding:14px 16px;color:white;background:linear-gradient(135deg,var(--accent),#7c3aed);font-weight:700;box-shadow:0 10px 25px rgba(124,58,237,.35);width:100%}.btn.secondary{background:rgba(255,255,255,.12);box-shadow:none;border:1px solid var(--line)}.btn.danger{background:rgba(251,113,133,.18);box-shadow:none;border:1px solid rgba(251,113,133,.35)}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.field{margin:10px 0}.label{font-size:13px;color:var(--muted);margin:0 0 7px 4px}.input,select,textarea{width:100%;border:1px solid var(--line);border-radius:17px;background:rgba(255,255,255,.1);color:white;padding:14px 14px;outline:none}select option{color:#111}.tabs{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(10px + env(safe-area-inset-bottom));width:min(520px,calc(100% - 20px));height:70px;background:rgba(24,13,38,.86);border:1px solid var(--line);border-radius:28px;backdrop-filter:blur(24px);display:grid;grid-template-columns:repeat(4,1fr);padding:8px;box-shadow:var(--shadow);z-index:10}.tab{border:0;background:transparent;color:var(--muted);border-radius:21px;font-size:12px;font-weight:700}.tab.active{background:rgba(255,255,255,.13);color:white}.tab span{display:block;font-size:20px;margin-bottom:2px}.screen{display:none}.screen.active{display:block}.list{display:flex;flex-direction:column;gap:10px}.item{background:rgba(255,255,255,.08);border:1px solid var(--line);border-radius:20px;padding:14px}.item.active{border-color:rgba(180,114,255,.75);background:rgba(180,114,255,.16)}.mini{font-size:12px;color:var(--muted)}.empty{text-align:center;color:var(--muted);padding:28px 8px}.modal{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;align-items:flex-end;z-index:30}.modal.show{display:flex}.sheet{width:100%;max-width:520px;margin:0 auto;background:#1b0f2c;border:1px solid var(--line);border-radius:30px 30px 0 0;padding:20px 16px calc(20px + env(safe-area-inset-bottom));box-shadow:var(--shadow)}.sheet h2{margin:0 0 12px}.toast{position:fixed;left:50%;bottom:calc(92px + env(safe-area-inset-bottom));transform:translateX(-50%) translateY(20px);background:white;color:#13091f;border-radius:999px;padding:12px 16px;font-weight:700;opacity:0;transition:.25s;z-index:40}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}.kpi{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}.kpi .item{text-align:center}.kpi strong{font-size:20px}.smallbtn{border:0;border-radius:999px;background:rgba(255,255,255,.12);color:white;padding:8px 10px}.dangerText{color:var(--danger)}@media(prefers-color-scheme:light){:root{--bg:#f6f2ff;--bg2:#fff;--card:rgba(255,255,255,.75);--card2:rgba(255,255,255,.9);--text:#160d24;--muted:rgba(22,13,36,.62);--line:rgba(22,13,36,.12);--shadow:0 18px 45px rgba(64,40,95,.16)}body{background:radial-gradient(circle at 20% 0,#eadbff 0,#f6f2ff 45%,#fff 100%)}.input,select,textarea{color:#160d24}.tabs{background:rgba(255,255,255,.86)}.sheet{background:#fff}}
+  </style>
 </head>
 <body>
-  <main class="app-shell">
-    <header class="topbar">
-      <div><p class="eyebrow">Mounjaro</p><h1>Pen Rechner</h1></div>
-      <button id="themeBtn" class="icon-btn" aria-label="Design wechseln">☾</button>
-    </header>
+  <main class="app">
+    <header class="top"><div class="title"><small>Mounjaro Pen-Rechner</small><h1>Dashboard</h1></div><div class="pill" id="today"></div></header>
 
-    <section id="dashboard" class="view active">
-      <article class="hero-card glass">
-        <div class="hero-grid">
-          <div>
-            <p class="muted">Aktiver Pen</p>
-            <h2 id="activePenTitle">Kein Pen</h2>
-            <p id="activePenSubtitle" class="muted">Starte einen neuen Pen.</p>
-          </div>
-          <div class="ring" aria-label="Restmenge">
-            <svg viewBox="0 0 120 120">
-              <circle class="ring-bg" cx="60" cy="60" r="50"></circle>
-              <circle id="ringProgress" class="ring-progress" cx="60" cy="60" r="50"></circle>
-            </svg>
-            <div><strong id="restValue">0</strong><span>mg Rest</span></div>
-          </div>
-        </div>
-        <div class="pen-visual"><div id="penFill" class="pen-fill"></div><div class="pen-cap"></div></div>
-        <div class="hero-actions">
-          <button class="primary" id="openDoseBtn">+ Wirkstoff entnehmen</button>
-          <button class="secondary" id="newPenBtn">Neuer Pen</button>
-        </div>
-      </article>
-
-      <section class="stats-row">
-        <article class="mini-card"><span>Verbraucht</span><strong id="usedValue">0 mg</strong></article>
-        <article class="mini-card"><span>Letzte Entnahme</span><strong id="lastDoseValue">–</strong></article>
-      </section>
-
-      <article class="glass planner-card">
-        <div class="section-title"><h3>Pen-Planer</h3><span>Flexible Nutzung</span></div>
-        <div class="form-grid small">
-          <label>Wunschdosis mg<input id="plannerDose" type="number" step="0.01" inputmode="decimal" placeholder="z. B. 2,5"></label>
-        </div>
-        <p id="plannerResult" class="planner-result">Gib eine Wunschdosis ein.</p>
-      </article>
+    <section id="dashboard" class="screen active">
+      <div class="card hero">
+        <div class="row"><div><div class="muted">Aktueller Pen</div><strong id="activePenName">Kein Pen</strong></div><button class="smallbtn" onclick="openPenModal()">+ Neuer Pen</button></div>
+        <div style="margin-top:18px"><span class="big" id="remainingMg">0</span> <span class="unit">mg Rest</span></div>
+        <div class="progress"><div class="bar" id="progressBar"></div></div>
+        <div class="row mini"><span id="percentText">0 % gefüllt</span><span id="usedText">0 mg verbraucht</span></div>
+        <div class="pen-visual" style="margin-top:16px"><div class="pen-fill" id="penFill"></div><div class="pen-cap"></div></div>
+      </div>
+      <div class="grid"><button class="btn" onclick="openDoseModal()">＋ Wirkstoff entnehmen</button><button class="btn secondary" onclick="showTab('planner')">Planer öffnen</button></div>
+      <div class="kpi" style="margin-top:14px"><div class="item"><div class="mini">Pens</div><strong id="kpiPens">0</strong></div><div class="item"><div class="mini">Einträge</div><strong id="kpiHist">0</strong></div><div class="item"><div class="mini">Gesamt</div><strong id="kpiUsed">0</strong></div></div>
+      <div class="card"><div class="row"><strong>Letzte Entnahmen</strong><button class="smallbtn" onclick="showTab('history')">Alle</button></div><div class="list" id="recentList"></div></div>
     </section>
 
-    <section id="pens" class="view">
-      <div class="section-title"><h2>Pens</h2><button class="small-btn" id="newPenBtn2">+ Neu</button></div>
-      <div id="penList" class="list"></div>
-    </section>
-
-    <section id="history" class="view">
-      <div class="section-title"><h2>Verlauf</h2><button class="small-btn danger" id="clearHistoryBtn">Leeren</button></div>
-      <div id="historyList" class="list"></div>
-    </section>
-
-    <section id="settings" class="view">
-      <article class="glass settings-card">
-        <h2>Einstellungen</h2>
-        <button class="secondary full" id="exportBtn">Daten exportieren</button>
-        <label class="secondary full file-label">Daten importieren<input id="importInput" type="file" accept="application/json"></label>
-        <button class="secondary danger full" id="resetAllBtn">Alle Daten löschen</button>
-        <p class="muted tiny">Alle Daten bleiben lokal im Browser auf deinem Gerät gespeichert.</p>
-      </article>
-    </section>
+    <section id="pens" class="screen"><div class="card"><div class="row"><strong>Meine Pens</strong><button class="smallbtn" onclick="openPenModal()">+ Hinzufügen</button></div><div class="list" id="penList" style="margin-top:14px"></div></div></section>
+    <section id="history" class="screen"><div class="card"><div class="row"><strong>Verlauf</strong><button class="smallbtn dangerText" onclick="clearHistory()">Leeren</button></div><div class="list" id="historyList" style="margin-top:14px"></div></div></section>
+    <section id="planner" class="screen"><div class="card"><strong>Pen-Planer</strong><div class="field"><div class="label">Pen-Stärke</div><select id="planStrength"><option>2.5</option><option>5</option><option>7.5</option><option>10</option><option>12.5</option><option>15</option></select></div><div class="field"><div class="label">Gewünschte Dosis je Anwendung</div><input class="input" id="planDose" inputmode="decimal" placeholder="z. B. 2,5" /></div><button class="btn" onclick="calculatePlan()">Berechnen</button><div class="item" id="planResult" style="margin-top:14px">Gib Stärke und Wunschdosis ein.</div></div></section>
+    <section id="settings" class="screen"><div class="card"><strong>Einstellungen</strong><p class="muted">Alle Daten werden lokal im Browser auf deinem Gerät gespeichert.</p><button class="btn secondary" onclick="exportData()">Daten exportieren</button><div style="height:10px"></div><button class="btn danger" onclick="resetAll()">Alle Daten löschen</button></div></section>
   </main>
 
-  <nav class="tabbar">
-    <button class="tab active" data-view="dashboard">⌂<span>Start</span></button>
-    <button class="tab" data-view="pens">▣<span>Pens</span></button>
-    <button class="tab" data-view="history">↺<span>Verlauf</span></button>
-    <button class="tab" data-view="settings">⚙<span>Mehr</span></button>
-  </nav>
+  <nav class="tabs"><button class="tab active" data-tab="dashboard" onclick="showTab('dashboard')"><span>🏠</span>Home</button><button class="tab" data-tab="pens" onclick="showTab('pens')"><span>💉</span>Pens</button><button class="tab" data-tab="history" onclick="showTab('history')"><span>📈</span>Verlauf</button><button class="tab" data-tab="settings" onclick="showTab('settings')"><span>⚙️</span>Optionen</button></nav>
 
-  <dialog id="penDialog" class="modal">
-    <form method="dialog" id="penForm">
-      <h2>Neuer Pen</h2>
-      <label>Pen-Stärke
-        <select id="penStrength"><option>2.5</option><option>5</option><option>7.5</option><option>10</option><option>12.5</option><option>15</option></select>
-      </label>
-      <label>Name optional<input id="penName" placeholder="z. B. Pen 10 mg"></label>
-      <div class="modal-actions"><button class="secondary" value="cancel">Abbrechen</button><button class="primary" id="savePenBtn" value="default">Speichern</button></div>
-    </form>
-  </dialog>
+  <div class="modal" id="penModal"><div class="sheet"><h2>Neuen Pen starten</h2><div class="field"><div class="label">Pen-Stärke</div><select id="penStrength"><option>2.5</option><option>5</option><option>7.5</option><option>10</option><option>12.5</option><option>15</option></select></div><div class="field"><div class="label">Name optional</div><input class="input" id="penName" placeholder="z. B. 10 mg Pen" /></div><div class="grid"><button class="btn secondary" onclick="closeModals()">Abbrechen</button><button class="btn" onclick="createPen()">Speichern</button></div></div></div>
+  <div class="modal" id="doseModal"><div class="sheet"><h2>Wirkstoff entnehmen</h2><div class="field"><div class="label">Entnommene Menge in mg</div><input class="input" id="doseAmount" inputmode="decimal" placeholder="z. B. 5" /></div><div class="field"><div class="label">Notiz optional</div><textarea id="doseNote" rows="2" placeholder="z. B. rechte Seite Bauch"></textarea></div><div class="grid"><button class="btn secondary" onclick="closeModals()">Abbrechen</button><button class="btn" onclick="saveDose()">Speichern</button></div></div></div>
+  <div class="toast" id="toast">Gespeichert</div>
 
-  <dialog id="doseDialog" class="modal">
-    <form method="dialog" id="doseForm">
-      <h2>Wirkstoff entnehmen</h2>
-      <label>Menge in mg<input id="doseAmount" type="number" step="0.01" inputmode="decimal" required placeholder="z. B. 2,5"></label>
-      <label>Notiz optional<input id="doseNote" placeholder="z. B. Woche 3"></label>
-      <div class="modal-actions"><button class="secondary" value="cancel">Abbrechen</button><button class="primary" id="saveDoseBtn" value="default">Speichern</button></div>
-    </form>
-  </dialog>
-
-  <script src="js/app.js"></script>
-</body>
-</html>
+<script>
+const strengths=[2.5,5,7.5,10,12.5,15];
+let state=JSON.parse(localStorage.getItem('mjStateV5')||'null')||{pens:[],activePenId:null,history:[]};
+const fmt=n=>Number(n||0).toLocaleString('de-DE',{maximumFractionDigits:2});
+const parse=v=>parseFloat(String(v).replace(',','.'));
+function save(){localStorage.setItem('mjStateV5',JSON.stringify(state));render()}
+function activePen(){return state.pens.find(p=>p.id===state.activePenId)||state.pens[0]}
+function showTab(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.tab===id));document.querySelector('.title h1').textContent=id==='dashboard'?'Dashboard':id==='pens'?'Pens':id==='history'?'Verlauf':id==='planner'?'Planer':'Einstellungen'}
+function openPenModal(){document.getElementById('penModal').classList.add('show')}
+function openDoseModal(){if(!activePen()){toast('Bitte zuerst einen Pen anlegen');openPenModal();return}document.getElementById('doseModal').classList.add('show')}
+function closeModals(){document.querySelectorAll('.modal').forEach(m=>m.classList.remove('show'))}
+function toast(t){const el=document.getElementById('toast');el.textContent=t;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),1600)}
+function createPen(){const s=parse(document.getElementById('penStrength').value);const name=document.getElementById('penName').value.trim()||`${fmt(s)} mg Pen`;const pen={id:crypto.randomUUID(),name,strength:s,remaining:s,created:new Date().toISOString()};state.pens.unshift(pen);state.activePenId=pen.id;document.getElementById('penName').value='';closeModals();toast('Pen angelegt');save()}
+function saveDose(){const pen=activePen();const amount=parse(document.getElementById('doseAmount').value);if(!pen||!amount||amount<=0){toast('Bitte Menge eingeben');return}if(amount>pen.remaining+0.0001){toast('Menge größer als Rest');return}pen.remaining=Math.max(0,+(pen.remaining-amount).toFixed(3));state.history.unshift({id:crypto.randomUUID(),penId:pen.id,penName:pen.name,amount,remaining:pen.remaining,note:document.getElementById('doseNote').value.trim(),date:new Date().toISOString()});document.getElementById('doseAmount').value='';document.getElementById('doseNote').value='';closeModals();toast('Entnahme gespeichert');save()}
+function setActive(id){state.activePenId=id;save();showTab('dashboard')}
+function deletePen(id){if(!confirm('Diesen Pen löschen? Verlauf bleibt erhalten.'))return;state.pens=state.pens.filter(p=>p.id!==id);if(state.activePenId===id)state.activePenId=state.pens[0]?.id||null;save()}
+function deleteHistory(id){const h=state.history.find(x=>x.id===id); if(!h)return; if(confirm('Eintrag löschen? Die Restmenge wird nicht automatisch zurückgerechnet.')){state.history=state.history.filter(x=>x.id!==id);save()}}
+function clearHistory(){if(confirm('Gesamten Verlauf löschen?')){state.history=[];save()}}
+function calculatePlan(){const s=parse(document.getElementById('planStrength').value);const d=parse(document.getElementById('planDose').value);const el=document.getElementById('planResult');if(!d||d<=0){el.textContent='Bitte Wunschdosis eingeben.';return}const full=Math.floor((s+1e-9)/d);const rest=+(s-full*d).toFixed(3);el.innerHTML=`<strong>${full}</strong> vollständige Anwendungen<br><span class="muted">Rest danach: ${fmt(rest)} mg</span>`}
+function exportData(){const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='mounjaro-daten.json';a.click()}
+function resetAll(){if(confirm('Alle Pens und den Verlauf löschen?')){state={pens:[],activePenId:null,history:[]};save()}}
+function render(){document.getElementById('today').textContent=new Date().toLocaleDateString('de-DE',{weekday:'short',day:'2-digit',month:'2-digit'});const pen=activePen();if(pen&&!state.activePenId)state.activePenId=pen.id;const pct=pen?Math.round((pen.remaining/pen.strength)*100):0;document.getElementById('activePenName').textContent=pen?pen.name:'Kein Pen';document.getElementById('remainingMg').textContent=pen?fmt(pen.remaining):'0';document.getElementById('progressBar').style.width=pct+'%';document.getElementById('penFill').style.width=Math.max(0,pct-8)+'%';document.getElementById('percentText').textContent=pct+' % gefüllt';document.getElementById('usedText').textContent=pen?`${fmt(pen.strength-pen.remaining)} mg verbraucht`:'0 mg verbraucht';document.getElementById('kpiPens').textContent=state.pens.length;document.getElementById('kpiHist').textContent=state.history.length;document.getElementById('kpiUsed').textContent=fmt(state.history.reduce((a,b)=>a+b.amount,0));
+ const recent=state.history.slice(0,3);document.getElementById('recentList').innerHTML=recent.length?recent.map(h=>histHtml(h,false)).join(''):'<div class="empty">Noch keine Entnahme gespeichert.</div>';document.getElementById('historyList').innerHTML=state.history.length?state.history.map(h=>histHtml(h,true)).join(''):'<div class="empty">Noch kein Verlauf vorhanden.</div>';document.getElementById('penList').innerHTML=state.pens.length?state.pens.map(p=>`<div class="item ${p.id===state.activePenId?'active':''}"><div class="row"><div><strong>${p.name}</strong><div class="mini">${fmt(p.remaining)} von ${fmt(p.strength)} mg übrig</div></div><div><button class="smallbtn" onclick="setActive('${p.id}')">Aktiv</button> <button class="smallbtn dangerText" onclick="deletePen('${p.id}')">Löschen</button></div></div><div class="progress"><div class="bar" style="width:${Math.round(p.remaining/p.strength*100)}%"></div></div></div>`).join(''):'<div class="empty">Lege deinen ersten Pen an.</div>'}
+function histHtml(h,withDelete){const d=new Date(h.date).toLocaleString('de-DE',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'});return `<div class="item"><div class="row"><div><strong>${fmt(h.amount)} mg entnommen</strong><div class="mini">${d} · ${h.penName}</div>${h.note?`<div class="mini">${h.note}</div>`:''}</div><div style="text-align:right"><div class="mini">Rest</div><strong>${fmt(h.remaining)}</strong>${withDelete?`<br><button class="smallbtn dangerText" onclick="deleteHistory('${h.id}')">Löschen</button>`:''}</div></div></div>`}
+if('serviceWorker' in navigator){navigator.serviceWorker.register('service-worker.js').catch(()=>{})}render();
+</script>
+</body></html>
