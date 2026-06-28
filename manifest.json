@@ -1,10 +1,10 @@
 {
-  "name": "Mounjaro Rechner V11",
+  "name": "Mounjaro Rechner V14",
   "short_name": "Mounjaro",
   "start_url": "./",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#ffffff",
+  "background_color": "#f7fffc",
+  "theme_color": "#0f766e",
   "icons": [
     {
       "src": "icons/icon-192.png",
