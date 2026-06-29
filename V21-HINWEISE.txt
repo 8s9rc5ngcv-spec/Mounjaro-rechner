@@ -1,0 +1,1 @@
+V21: Injektionsstellen-Rotation auf der Seite „Spritze hinzufügen“. Die nächste Stelle wird aus der zuletzt gespeicherten Injektionsstelle berechnet und kann manuell geändert werden.
