@@ -1,0 +1,6 @@
+Version 20
+- Wirkstoffkurve bleibt direkt auf dem Homebildschirm.
+- Neue Zeitraum-Auswahl: Woche, Monat, 90 Tage, Insgesamt.
+- Optik der Kurve wurde näher an Shotsy angelehnt: blaue Fläche, Heute-Linie, gestrichelte Vorschau.
+- Keine zusätzlichen Kacheln unterhalb der Grafik.
+- Der lokale Speicher-Key bleibt unverändert, bestehende Daten sollten erhalten bleiben.
