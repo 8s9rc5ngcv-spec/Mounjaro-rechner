@@ -1,0 +1,1 @@
+Version 22: Injektionsstellen-Rotation auf der Seite „+ Spritze“ als Dropdown. Oberhalb des Dropdowns wird die letzte gespeicherte Injektionsstelle angezeigt; die vorgeschlagene nächste Stelle kann manuell geändert werden.
