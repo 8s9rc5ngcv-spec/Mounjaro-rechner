@@ -1,0 +1,14 @@
+Mounjaro Rechner V19 - Wirkstoffkurve auf Home bereinigt
+
+Geändert in dieser Version:
+- Die geschätzte Wirkstoffkurve bleibt direkt auf dem Homebildschirm.
+- Die Zusatz-Kacheln unterhalb der Wirkstoffgrafik wurden entfernt.
+- Die Eingabe-Kachel „Halbwertszeit Tage“ unterhalb der Grafik wurde entfernt.
+- Die Kachel „In 7 Tagen ohne neue Spritze“ unterhalb der Grafik wurde entfernt.
+- Die graphikbezogenen Zusatz-Kacheln auf Home wurden reduziert, damit die Kurve optisch ruhiger bleibt.
+- Der Info-Hinweis zur Kurve bleibt erhalten.
+- Der Speicher-Key bleibt unverändert, damit vorhandene Daten erhalten bleiben.
+
+Hinweis:
+Die Kurve ist nur eine rechnerische Schätzung und kein medizinischer Blutwert.
+Bitte keine Dosierungsentscheidungen allein nach der Kurve treffen.
