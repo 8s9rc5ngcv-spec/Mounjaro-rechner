@@ -1,0 +1,13 @@
+Mounjaro Rechner V18 - Wirkstoffkurve auf Home
+
+Neu in dieser Version:
+- Der Reiter "Wirk." wurde aus der unteren Navigation entfernt
+- Die geschätzte Wirkstoffkurve wird direkt auf dem Homebildschirm unter den bisherigen Kacheln angezeigt
+- Anzeige "Wirkstoff heute" bleibt auf der Startseite erhalten
+- Zusätzlich zeigt Home den geschätzten Wert in 7 Tagen ohne neue Spritze
+- Halbwertszeit kann direkt im Homebereich angepasst und auf 5 Tage zurückgesetzt werden
+- Berechnung über Halbwertszeit: Dosis × 0,5 ^ (vergangene Tage / Halbwertszeit)
+
+Hinweis:
+Die Kurve ist nur eine rechnerische Schätzung und kein medizinischer Blutwert.
+Bitte keine Dosierungsentscheidungen allein nach der Kurve treffen.
