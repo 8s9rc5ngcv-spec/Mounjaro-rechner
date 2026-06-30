@@ -1,0 +1,7 @@
+V23 Ergänzung: CSV für Gewicht
+
+- Im Reiter „Gewicht“ gibt es jetzt CSV exportieren und CSV importieren.
+- Export enthält: Datum/Uhrzeit; Gewicht kg
+- Import akzeptiert Semikolon-CSV und einfache Komma-CSV.
+- Dezimalkomma wird unterstützt, z. B. 92,4.
+- Datumsformate wie 30.06.2026 20:15 oder ISO-Datum werden unterstützt.
