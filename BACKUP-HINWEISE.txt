@@ -1,19 +1,18 @@
-Mounjaro Rechner – Version 11
+Backup-Hinweise
+================
 
-Diese Version wurde direkt auf Grundlage der hochgeladenen V10 erstellt.
+Ab V27 wird nur noch das Komplettbackup angeboten.
 
-Neu in V11:
-- Google-Drive-Backup über das iPhone-Teilen-Menü.
-- Im Zahnrad-Menü auf „Google Drive Backup“ tippen.
-- Danach im Teilen-Menü Google Drive auswählen und die JSON-Datei dort sichern.
-- Alternativ bleibt „Backup speichern“ als normale lokale Export-Datei erhalten.
-- Backup importieren funktioniert weiterhin über eine gespeicherte JSON-Datei.
+Das Komplettbackup enthält alle App-Daten, unter anderem:
+- Pens und aktiver Pen
+- Spritzen / Verlauf
+- Kosten
+- Gewichtsdaten
+- Körpergröße / BMI-Einstellungen
+- Backup-Erinnerungsstatus
+- sonstige App-Einstellungen
 
-Wichtig:
-- Dies ist keine vollautomatische Google-Drive-Synchronisation mit Google-Login.
-- Dafür wäre eine Google-OAuth/Client-ID-Konfiguration nötig.
-- Diese Lösung ist stabiler für iPhone/GitHub Pages und funktioniert ohne Google-Developer-Einrichtung.
-- Die bestehenden V10-Daten bleiben erhalten, weil der interne Speicher-Key unverändert bleibt.
-
-GitHub:
-- Beim Hochladen alle Inhalte dieses Ordners hochladen, nicht nur die ZIP-Datei.
+Empfehlung:
+- Regelmäßig ein Komplettbackup speichern.
+- Die App erinnert automatisch, wenn das letzte Komplettbackup länger als 31 Tage zurückliegt.
+- Die Backup-Datei sicher außerhalb des Browsers/iPhones aufbewahren, damit bei einem Totalverlust alles wiederhergestellt werden kann.

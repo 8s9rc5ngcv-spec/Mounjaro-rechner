@@ -1,0 +1,5 @@
+V27 Änderungen:
+- Google-Drive-Backup entfernt; unter Einstellungen wird nur noch das Komplettbackup angeboten.
+- Auf der Startseite oben neue 7-Tage-Anzeige bis zur nächsten Spritze.
+- Die Anzeige berechnet den nächsten Termin aus der zuletzt gespeicherten Spritze.
+- Version und Service-Worker-Cache auf V27 aktualisiert.
