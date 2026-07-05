@@ -1,0 +1,4 @@
+V26
+- Beim Gewichtsverlauf wurde zusätzlich der Zeitraum „1 Monat“ ergänzt.
+- Die Auswahl ist sowohl auf der Hauptseite als auch im Reiter Gewicht verfügbar.
+- Service-Worker-Cache auf V26 aktualisiert.
