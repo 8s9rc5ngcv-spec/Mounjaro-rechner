@@ -1,0 +1,1 @@
+V25: CSV-Import und CSV-Export für Gewichtsdaten wieder ergänzt. Die Funktionen befinden sich unter Einstellungen im Abschnitt „Gewichtsdaten als CSV“. Der CSV-Import ergänzt vorhandene Einträge und überspringt identische Duplikate.
