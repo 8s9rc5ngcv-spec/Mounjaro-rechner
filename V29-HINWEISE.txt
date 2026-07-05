@@ -1,0 +1,4 @@
+V29 Änderungen:
+- Anzeige „Nächste Spritze“ hat etwas mehr Abstand zur folgenden Kachel.
+- Prozentanzeige startet nach einer Spritze bei 100 % und sinkt über 7 Tage bis 0 %.
+- Fortschrittsbalken und Ring starten grün und färben sich zum Fälligkeitstag hin zunehmend rot.
