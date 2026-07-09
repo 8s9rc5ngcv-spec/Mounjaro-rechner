@@ -1,0 +1,1 @@
+V30: Abstand zwischen der oberen Kachel „Nächste Spritze“ und dem Wert darunter angepasst. Der Abstand entspricht jetzt dem Bereich „Aktiver Pen“ / mg-Anzeige.
