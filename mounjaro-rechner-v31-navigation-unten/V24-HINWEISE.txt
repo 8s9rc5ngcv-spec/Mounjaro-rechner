@@ -1,0 +1,10 @@
+V24 – Komplettbackup, Backup-Erinnerung und BMI
+
+Änderungen:
+- Backup ist jetzt ausdrücklich als Komplettbackup umgesetzt.
+- Export/Import umfasst Pens, Spritzen/Dosen, Kosten, Gewichtsdaten, Körpergröße/BMI-Einstellung, Backup-Erinnerungsstatus und App-Einstellungen.
+- Backup-Dateiname heißt jetzt mounjaro-komplettbackup-...json.
+- Die App erinnert automatisch, wenn das letzte Komplettbackup älter als 31 Tage ist oder noch keines erstellt wurde.
+- Im Reiter Gewicht gibt es eine BMI-Anzeige mit Körpergröße, BMI-Wert, Kategorie und farbiger Skala.
+
+Hinweis: Der BMI ist nur eine einfache rechnerische Einordnung und ersetzt keine medizinische Beratung.

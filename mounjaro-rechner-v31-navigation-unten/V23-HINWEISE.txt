@@ -1,0 +1,7 @@
+V23 – Gewicht
+
+- Der untere Reiter „Planer“ wurde entfernt.
+- Neuer Reiter „Gewicht“ mit Eingabe von Gewicht, Datum und Uhrzeit.
+- Auf der Startseite erscheint unter „Geschätzte Medikamentenwerte“ zusätzlich ein Gewichtsverlauf.
+- Der Gewichtsverlauf hat Filter für 3 Monate, 6 Monate, 1 Jahr und Insgesamt.
+- Bestehende Daten bleiben über den bisherigen Speicher-Key erhalten.

@@ -1,0 +1,18 @@
+Backup-Hinweise
+================
+
+Ab V27 wird nur noch das Komplettbackup angeboten.
+
+Das Komplettbackup enthält alle App-Daten, unter anderem:
+- Pens und aktiver Pen
+- Spritzen / Verlauf
+- Kosten
+- Gewichtsdaten
+- Körpergröße / BMI-Einstellungen
+- Backup-Erinnerungsstatus
+- sonstige App-Einstellungen
+
+Empfehlung:
+- Regelmäßig ein Komplettbackup speichern.
+- Die App erinnert automatisch, wenn das letzte Komplettbackup länger als 31 Tage zurückliegt.
+- Die Backup-Datei sicher außerhalb des Browsers/iPhones aufbewahren, damit bei einem Totalverlust alles wiederhergestellt werden kann.

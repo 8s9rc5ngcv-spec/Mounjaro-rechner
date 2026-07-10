@@ -1,0 +1,7 @@
+V31 – Navigationsleiste am unteren Bildschirmrand
+
+Änderung:
+- Die untere Navigationsleiste mit Home, Pens, Verlauf usw. ist jetzt direkt am unteren Bildschirmrand verankert.
+- Der bisherige schwebende Abstand wurde entfernt.
+- Die iPhone-Sicherheitszone am unteren Rand wird weiterhin berücksichtigt, damit die Schaltflächen nicht vom Home-Indikator verdeckt werden.
+- Der Service-Worker-Cache wurde aktualisiert, damit die Änderung zuverlässig geladen wird.
