@@ -1,0 +1,9 @@
+Version 33 – Premium-Pen-Animation
+
+- Prozentkreis bei „Nächste Spritze“ entfernt.
+- Neuer, selbst gezeichneter SVG-Injektionspen ohne Markenlogo.
+- Pen und Lichtschein übernehmen exakt die Farbe des Zeitbalkens.
+- Ruhiges Schweben bei größerem Abstand.
+- Stärkeres Pulsieren kurz vor dem Termin.
+- Herzschlag-Effekt am Fälligkeitstag und bei Überfälligkeit.
+- Daten bleiben durch unveränderten localStorage-Schlüssel erhalten.
