@@ -1,0 +1,4 @@
+Version 32
+- Prozentkreis bei „Nächste Spritze“ entfernt.
+- Stattdessen dezente, bewegte Pen-Animation eingebaut.
+- Zeitbalken und Farblogik bleiben erhalten.
