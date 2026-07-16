@@ -1,0 +1,7 @@
+Version 35 – Gewichts-Fix
+
+- Importierte/ältere Gewichtseinträge werden automatisch auf ein gültiges Datumsformat migriert.
+- Ungültige Gewichtseinträge werden beim Zeichnen sicher übersprungen, statt den Gewichts-Reiter abstürzen zu lassen.
+- Die Ein-Punkt-Gewichtskurve ist gegen ungültige Datumswerte abgesichert.
+- Service-Worker-Cache auf Version 35 erhöht.
+- ZIP-Dateiname und oberster Ordner stimmen überein.
