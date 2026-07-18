@@ -1,0 +1,9 @@
+VERSION 36 – GEWICHT STABIL
+
+- Gewicht speichern aktualisiert nicht mehr unnötig die komplette App.
+- Robuste Prüfung von Gewicht und Datum.
+- Fehler beim lokalen Speichern werden abgefangen.
+- Gewichtsdiagramm wird bei sehr vielen Einträgen auf maximal 120 Punkte reduziert.
+- Rechenintensive SVG- und Zahlenanimationen im Gewichtsbereich wurden entschärft.
+- Service-Worker-Cache auf Version 36 angehoben.
+- Bestehende Daten und Backups bleiben kompatibel.
