@@ -1,0 +1,7 @@
+V37 – iPhone-Gewichts-Fix
+
+- Gewichts-Reiter wird separat und erst beim Öffnen gerendert.
+- Kein kompletter Neuaufbau der App beim Tabwechsel.
+- Gewichtsliste auf 60 sichtbare Einträge begrenzt; alle Daten bleiben gespeichert.
+- Premium-Reflow-Animation im Gewichts-Reiter deaktiviert.
+- Service-Worker-Cache auf V37 aktualisiert.
